@@ -193,7 +193,6 @@ nav.scrolled { background: rgba(223,222,219,0.98); border-bottom: 1px solid var(
 .bg-body p:last-child { margin-bottom: 0; }
 .bg-body strong { color: var(--ink); font-weight: 500; }
 .bg-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--acc); font-size: 1.08em; letter-spacing: -0.005em; }
-.bg-body em.bg-pillars { display: block; margin: 1.5rem 0; font-size: 1.7rem; font-weight: 600; line-height: 1.35; }
 .bg-body-full { max-width: none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.9; }
 .bg-body-full .bg-lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 1.55vw, 1.55rem); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.75rem; }
 .bg-body-full .bg-lede + p { padding-top: 0.25rem; }
@@ -688,7 +687,7 @@ body.modal-open { overflow: hidden; }
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
       <defs>
         <radialGradient id="bm-n1" cx="35%" cy="30%" r="80%">
@@ -736,11 +735,11 @@ body.modal-open { overflow: hidden; }
     <span>Josefin</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#how">How it works</a></li>
-    <li><a href="why-josefin.html" class="active">Why Josefin</a></li>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/why-josefin" class="active">Why Josefin</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="sign-in.html" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
   </div>
 </nav>
@@ -791,7 +790,7 @@ built on a personal conviction.</h1>
     <div class="bg-body bg-body-full">
       <p class="bg-lede">The decision to build Josefin came from a really personal place — I looked around me and saw friends and family drowning under the weight of managing full-time jobs and their households. It felt overwhelming, stressful, and people were just trying to deal in their own way — with varying results.</p>
       <p>Before I thought about building any code, I decided to live the solution. I became 'Josefin' for 2 months; manually serving households across London, Berlin, Cape Town and Lagos. 5 school emails a day of different lengths, detail and complexity. Children falling ill and rejecting weekly meal plans. Parents booking wrong flights. Calendar conflicts. Nanny coordination breakdowns. To-dos missed or forgotten. </p>
-      <p>I picked up on each issue, and thought through what households really need. <em class="bg-pillars">Visibility. Coordination. Reminders and follow-ups. Execution. A shared system.</em> That rigorous validation shaped everything about how Josefin works.</p>
+      <p>I picked up on each issue, and thought through what households really need. <em>Visibility. Coordination. Reminders and follow-ups. Execution. A shared system.</em> That rigorous validation shaped everything about how Josefin works.</p>
       <div class="bg-divider" aria-hidden="true"><span>—  §  —</span></div>
       <p>I spent the last 15 years solving consumer problems across industries - from building the non-flower gifting business at Bloom &amp; Wild, to driving marketing and strategy at LVMH team, to getting into the nuts and bolts of consumer businesses at McKinsey.</p>
       <p>But Josefin is different. This isn't about building another lifestyle brand or scaling a marketplace. It's about removing the sense of overwhelm, guilt and frustration that prevents people from being fully present in their lives, and enjoying their day-to-day.</p>
@@ -840,7 +839,7 @@ built on a personal conviction.</h1>
     <h2 class="cta-h">Let Josefin <em>handle</em> it.</h2>
     <p class="cta-sub">Start free in the July beta, or join the waitlist for general access. London households first.</p>
     <div class="cta-actions">
-      <a href="sign-in.html" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
+      <a href="/sign-in" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
       <a href="#" data-open-waitlist class="btn-outline-dark">Join the Waitlist</a>
     </div>
   </div>
@@ -851,9 +850,9 @@ built on a personal conviction.</h1>
   <div class="ft-inner">
     <div class="ft-wm">Josefin</div>
     <div class="ft-links">
-      <a href="Contact.html">Contact</a>
-      <a href="Privacy.html">Privacy</a>
-      <a href="Terms.html">Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
     <div class="ft-copy">© 2025 Josefin · hello@josefin.ai</div>
   </div>
@@ -904,6 +903,13 @@ built on a personal conviction.</h1>
           <option>Lagos</option>
           <option value="other">Somewhere else</option>
         </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="wl-whatsapp">WhatsApp number</label>
+        <input class="input" type="tel" id="wl-whatsapp" name="whatsapp"
+               autocomplete="tel" inputmode="tel"
+               placeholder="+44 7700 900000">
+        <span class="field-help">Optional. Add it if you&rsquo;d like Josefin to reach you on WhatsApp.</span>
       </div>
 
       <div class="field">

@@ -597,7 +597,7 @@ body.modal-open { overflow: hidden; }
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
       <defs>
         <radialGradient id="bm-n1" cx="35%" cy="30%" r="80%">
@@ -645,11 +645,11 @@ body.modal-open { overflow: hidden; }
     <span>Josefin</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#how">How it works</a></li>
-    <li><a href="why-josefin.html">Why Josefin</a></li>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/why-josefin">Why Josefin</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="sign-in.html" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
   </div>
 </nav>
@@ -672,7 +672,7 @@ body.modal-open { overflow: hidden; }
     <div class="rule"></div>
 
     <section class="about-block">
-      <a href="index.html" class="read-more"><span aria-hidden="true">←</span> Back to home</a>
+      <a href="/" class="read-more"><span aria-hidden="true">←</span> Back to home</a>
     </section>
 
     <div class="rule"></div>
@@ -685,9 +685,9 @@ body.modal-open { overflow: hidden; }
   <div class="ft-inner">
     <div class="ft-wm">Josefin</div>
     <div class="ft-links">
-      <a href="Contact.html">Contact</a>
-      <a href="Privacy.html">Privacy</a>
-      <a href="Terms.html" class="active">Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms" class="active">Terms</a>
     </div>
     <div class="ft-copy">© 2025 Josefin · hello@josefin.ai</div>
   </div>
@@ -734,6 +734,13 @@ window.addEventListener('scroll', () => {
           <option>Lagos</option>
           <option value="other">Somewhere else</option>
         </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="wl-whatsapp">WhatsApp number</label>
+        <input class="input" type="tel" id="wl-whatsapp" name="whatsapp"
+               autocomplete="tel" inputmode="tel"
+               placeholder="+44 7700 900000">
+        <span class="field-help">Optional. Add it if you&rsquo;d like Josefin to reach you on WhatsApp.</span>
       </div>
 
       <div class="field">

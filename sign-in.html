@@ -597,8 +597,8 @@ body.modal-open { overflow: hidden; }
   <!-- LEFT: AUTH -->
   <div class="auth-side">
     <div class="auth-brand">
-      <a class="auth-logo" href="index.html">Josefin</a>
-      <a class="auth-back" href="index.html">Back to site</a>
+      <a class="auth-logo" href="/">Josefin</a>
+      <a class="auth-back" href="/">Back to site</a>
     </div>
 
     <div class="auth-center">
@@ -634,15 +634,15 @@ body.modal-open { overflow: hidden; }
           <p><b>Read-only to start.</b> Josefin reads what's needed to brief and coordinate. It only sends messages you've approved, until you tell it otherwise.</p>
         </div>
 
-        <p class="auth-legal">By continuing, you agree to Josefin's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+        <p class="auth-legal">By continuing, you agree to Josefin's <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</p>
       </div>
     </div>
 
     <div class="auth-foot">
       <div class="auth-foot-copy">© 2025 Josefin</div>
       <div class="auth-foot-links">
-        <a href="contact.html">Contact</a>
-        <a href="contact.html">Help</a>
+        <a href="/contact">Contact</a>
+        <a href="/contact">Help</a>
       </div>
     </div>
   </div>
@@ -765,6 +765,13 @@ body.modal-open { overflow: hidden; }
           <option>Lagos</option>
           <option value="other">Somewhere else</option>
         </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="wl-whatsapp">WhatsApp number</label>
+        <input class="input" type="tel" id="wl-whatsapp" name="whatsapp"
+               autocomplete="tel" inputmode="tel"
+               placeholder="+44 7700 900000">
+        <span class="field-help">Optional. Add it if you&rsquo;d like Josefin to reach you on WhatsApp.</span>
       </div>
 
       <div class="field">

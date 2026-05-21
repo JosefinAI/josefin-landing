@@ -1188,7 +1188,7 @@ body.modal-open { overflow: hidden; }
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
       <defs>
         <radialGradient id="bm-n1" cx="35%" cy="30%" r="80%">
@@ -1237,10 +1237,10 @@ body.modal-open { overflow: hidden; }
   </a>
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
-    <li><a href="why-josefin.html">Why Josefin</a></li>
+    <li><a href="/why-josefin">Why Josefin</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="sign-in.html" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
   </div>
 </nav>
@@ -1252,7 +1252,7 @@ body.modal-open { overflow: hidden; }
     <h1 class="hero-h" id="heroH">Breathe.<br><em>Josefin has</em><br>it handled.</h1>
     <p class="hero-sub" style="width: 420px; text-align: left">Most AI helps one person manage better. Josefin is different: it integrates into everything - emails, calendars, childcare apps - understands what it all means for your household, coordinates everyone, and acts on your behalf. Your partner gets their reminders. Your nanny gets the schedule. You see what's handled. You get peace of mind.<br><br>From surfacing to executing. Directly from WhatsApp.</p>
     <div class="hero-actions">
-      <a href="sign-in.html" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
+      <a href="/sign-in" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
       <a href="#" data-open-waitlist class="btn-outline">Join the Waitlist</a>
     </div>
     <a href="#demo" class="btn-ghost btn-see">See it in action →</a>
@@ -1266,7 +1266,7 @@ body.modal-open { overflow: hidden; }
     <div class="hero-stack" aria-label="Josefin coordinating the household">
       <div class="hs-card hs-back">
         <div class="hs-head">
-          <span class="hs-to actor-p1">[ To Sarah ]</span>
+          <span class="hs-to actor-p1">[ To Emma ]</span>
           <span class="hs-meta">07:02</span>
         </div>
         <div class="hs-msg"><span class="hs-text">Here&rsquo;s what&rsquo;s been handled today.</span><span class="hs-tick">✓✓</span></div>
@@ -1503,7 +1503,7 @@ you already are.</h2>
             <div class="wa-msg">
               <b class="wa-sender">Josefin</b>
               Today: <b>early pickup</b> from school at <b>2:30pm</b>.
-              <div style="margin-top:0.35rem;">Please pack snacks and meet Sarah at Doctor's straight from school.</div>
+              <div style="margin-top:0.35rem;">Please pack snacks and meet Emma at Doctor's straight from school.</div>
               <div class="wa-meta">✓✓
 12:15</div>
             </div>
@@ -1597,7 +1597,7 @@ you already are.</h2>
     <p class="understanding-list">The children. Your routines. The shape of your week. Your preferences.<br>The way you do things.</p>
     <p class="understanding-coda"><em>Then it begins.</em></p>
     <div class="understanding-actions">
-      <a href="sign-in.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.55rem;">Join July Beta <span class="free-pill">Free</span></a>
+      <a href="/sign-in" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.55rem;">Join July Beta <span class="free-pill">Free</span></a>
       <a href="#" data-open-waitlist class="btn-outline-dark">Join the Waitlist</a>
     </div>
   </div>
@@ -1829,7 +1829,7 @@ that acts.</h2>
       <p class="relief-h">You shouldn't have to do it all by yourself.</p>
       <p class="relief-sub">That's what Josefin is for. Let it carry the load, the looking ahead, the reminders, the chasing, so you can just be present.</p>
       <div class="relief-actions">
-        <a href="sign-in.html" class="relief-cta">Let Josefin handle it →</a>
+        <a href="/sign-in" class="relief-cta">Let Josefin handle it →</a>
         <a href="#" data-open-waitlist class="relief-cta-ghost">Join the Waitlist</a>
       </div>
     </div>
@@ -1889,7 +1889,7 @@ that acts.</h2>
     <h2 class="cta-h">Ready to<br>breathe again?</h2>
     <p class="cta-sub">A quiet handover, then it just runs. Start free in the July beta, or join the waitlist for general access.</p>
     <div class="cta-actions">
-      <a href="sign-in.html" class="btn-cta btn-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+      <a href="/sign-in" class="btn-cta btn-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
       <a href="#" data-open-waitlist class="btn-cta-ghost">Join the Waitlist</a>
     </div>
     <div class="cta-note">No new apps · No new behaviour</div>
@@ -1902,9 +1902,9 @@ that acts.</h2>
   <div class="ft-inner">
     <div class="ft-wm">Josefin</div>
     <div class="ft-links">
-      <a href="Contact.html">Contact</a>
-      <a href="Privacy.html">Privacy</a>
-      <a href="Terms.html">Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
     <div class="ft-copy">© 2025 Josefin · hello@josefin.ai</div>
   </div>
@@ -2081,6 +2081,13 @@ that acts.</h2>
           <option>Lagos</option>
           <option value="other">Somewhere else</option>
         </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="wl-whatsapp">WhatsApp number</label>
+        <input class="input" type="tel" id="wl-whatsapp" name="whatsapp"
+               autocomplete="tel" inputmode="tel"
+               placeholder="+44 7700 900000">
+        <span class="field-help">Optional. Add it if you&rsquo;d like Josefin to reach you on WhatsApp.</span>
       </div>
 
       <div class="field">

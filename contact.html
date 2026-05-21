@@ -597,7 +597,7 @@ body.modal-open { overflow: hidden; }
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
       <defs>
         <radialGradient id="bm-n1" cx="35%" cy="30%" r="80%">
@@ -645,11 +645,11 @@ body.modal-open { overflow: hidden; }
     <span>Josefin</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#how">How it works</a></li>
-    <li><a href="why-josefin.html">Why Josefin</a></li>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/why-josefin">Why Josefin</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="sign-in.html" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
   </div>
 </nav>
@@ -676,7 +676,7 @@ body.modal-open { overflow: hidden; }
     <section class="pilot-block">
       <div class="block-label">— 002</div>
       <h2 class="pilot-h">Want to join the <em>July pilot?</em></h2>
-      <a href="sign-in.html" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
+      <a href="/sign-in" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
     </section>
 
     <div class="rule"></div>
@@ -685,7 +685,7 @@ body.modal-open { overflow: hidden; }
     <section class="about-block">
       <div class="block-eyebrow">About Josefin</div>
       <p class="about-body">Founded in London, Josefin is building the household operating system for modern families. We're starting with 50 households in July 2026.</p>
-      <a href="why-josefin.html" class="read-more">Read the full story <span aria-hidden="true">→</span></a>
+      <a href="/why-josefin" class="read-more">Read the full story <span aria-hidden="true">→</span></a>
     </section>
 
     <div class="rule"></div>
@@ -698,9 +698,9 @@ body.modal-open { overflow: hidden; }
   <div class="ft-inner">
     <div class="ft-wm">Josefin</div>
     <div class="ft-links">
-      <a href="Contact.html" class="active">Contact</a>
-      <a href="Privacy.html">Privacy</a>
-      <a href="Terms.html">Terms</a>
+      <a href="/contact" class="active">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
     <div class="ft-copy">© 2025 Josefin · hello@josefin.ai</div>
   </div>
@@ -747,6 +747,13 @@ window.addEventListener('scroll', () => {
           <option>Lagos</option>
           <option value="other">Somewhere else</option>
         </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="wl-whatsapp">WhatsApp number</label>
+        <input class="input" type="tel" id="wl-whatsapp" name="whatsapp"
+               autocomplete="tel" inputmode="tel"
+               placeholder="+44 7700 900000">
+        <span class="field-help">Optional. Add it if you&rsquo;d like Josefin to reach you on WhatsApp.</span>
       </div>
 
       <div class="field">
