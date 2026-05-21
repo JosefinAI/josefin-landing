@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+  <title>Josefin</title>
+  <defs>
+    <radialGradient id="bm-n1" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#f6c886"></stop>
+      <stop offset="0.5" stop-color="#d99846"></stop>
+      <stop offset="1" stop-color="#7b4f17"></stop>
+    </radialGradient>
+    <radialGradient id="bm-n2" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#6f95b8"></stop>
+      <stop offset="0.5" stop-color="#2c4a6e"></stop>
+      <stop offset="1" stop-color="#10243d"></stop>
+    </radialGradient>
+    <radialGradient id="bm-n3" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#b2cdc0"></stop>
+      <stop offset="0.5" stop-color="#759685"></stop>
+      <stop offset="1" stop-color="#3c5a4c"></stop>
+    </radialGradient>
+    <radialGradient id="bm-n4" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#a08260"></stop>
+      <stop offset="0.5" stop-color="#5c4630"></stop>
+      <stop offset="1" stop-color="#2a1d10"></stop>
+    </radialGradient>
+    <radialGradient id="bm-hub" cx="38%" cy="32%" r="68%">
+      <stop offset="0" stop-color="#FAD884"></stop>
+      <stop offset="0.45" stop-color="#E0AA34"></stop>
+      <stop offset="1" stop-color="#6F4D0C"></stop>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#0E0D0A" stroke-width="0.55" stroke-linecap="round" stroke-opacity="0.5">
+    <line x1="5" y1="5" x2="12" y2="12"></line>
+    <line x1="19" y1="5" x2="12" y2="12"></line>
+    <line x1="5" y1="19" x2="12" y2="12"></line>
+    <line x1="19" y1="19" x2="12" y2="12"></line>
+    <line x1="5" y1="5" x2="19" y2="5"></line>
+    <line x1="19" y1="5" x2="19" y2="19"></line>
+    <line x1="19" y1="19" x2="5" y2="19"></line>
+    <line x1="5" y1="19" x2="5" y2="5"></line>
+  </g>
+  <circle cx="5" cy="5" r="2.4" fill="url(#bm-n1)"></circle>
+  <circle cx="19" cy="5" r="2.4" fill="url(#bm-n2)"></circle>
+  <circle cx="5" cy="19" r="2.4" fill="url(#bm-n3)"></circle>
+  <circle cx="19" cy="19" r="2.4" fill="url(#bm-n4)"></circle>
+  <circle cx="12" cy="12" r="2.8" fill="url(#bm-hub)"></circle>
+</svg>
