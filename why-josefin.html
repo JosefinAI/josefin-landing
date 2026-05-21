@@ -151,7 +151,7 @@ nav.scrolled { background: rgba(223,222,219,0.98); border-bottom: 1px solid var(
 @keyframes bmHubBreath { 0%,100% { transform: scale(1); } 50% { transform: scale(1.10); } }
 
 /* ── HERO ── */
-.page-hero { padding: 6.5rem 5rem 3.25rem; background: var(--bg); border-bottom: 1px solid var(--ink-06); }
+.page-hero { padding: 7rem 5rem 5.5rem; background: var(--bg); border-bottom: 1px solid var(--ink-06); }
 .page-hero-inner { max-width: 1100px; margin: 0 auto; }
 .page-hero-eye { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--acc); margin-bottom: 1.5rem; font-weight: 500; display: flex; align-items: center; gap: 0.75rem; }
 .page-hero-eye::before { content: ''; width: 24px; height: 1px; background: var(--acc); }
@@ -193,6 +193,7 @@ nav.scrolled { background: rgba(223,222,219,0.98); border-bottom: 1px solid var(
 .bg-body p:last-child { margin-bottom: 0; }
 .bg-body strong { color: var(--ink); font-weight: 500; }
 .bg-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--acc); font-size: 1.08em; letter-spacing: -0.005em; }
+.bg-body em.bg-pillars { display: block; margin: 1.5rem 0; font-size: 1.7rem; font-weight: 600; line-height: 1.35; }
 .bg-body-full { max-width: none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.9; }
 .bg-body-full .bg-lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 1.55vw, 1.55rem); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.75rem; }
 .bg-body-full .bg-lede + p { padding-top: 0.25rem; }
@@ -288,7 +289,7 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
   .nav-links { display: none; }
   .nav-ctas .nav-cta { display: none; }
   .nav-cta-gold { padding: 0.45rem 0.8rem; font-size: 0.66rem; }
-  .page-hero { padding: 7rem 1.5rem 3rem; }
+  .page-hero { padding: 7rem 1.5rem 4rem; }
   .section, .founder-sec, .bg-sec, .opt-a, .opt-b, .opt-c, .cta-sec { padding: 4rem 1.5rem; }
   .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .founder-portrait { height: 380px; }
@@ -306,7 +307,7 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
 }
 
 
-/* ===== JOSEFIN SYSTEM ADDITIONS (interaction states + forms) ===== */
+/* ===== JOSEFIN SYSTEM ADDITIONS (interaction states + forms + modal) ===== */
 /* ============================================================
    JOSEFIN — SYSTEM ADDITIONS
    New CSS authored to close two gaps in the original site:
@@ -573,6 +574,114 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
   .form-row { grid-template-columns: 1fr; gap: 0; }
 }
 
+/* ------------------------------------------------------------
+   3. WAITLIST MODAL  (NEW — replaces the inline #waitlist section)
+   A dialog overlay openable from any page via [data-open-waitlist].
+   Uses the same form pattern + system tokens.
+   ------------------------------------------------------------ */
+
+/* 3a. Backdrop — dim + blur over the page */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(14,13,10,0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 3b. Dialog panel */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--ink-12);
+  border-radius: 4px;
+  box-shadow: 0 32px 80px -16px rgba(14,13,10,0.45);
+  padding: 2.5rem 2.5rem 2.75rem;
+  transform: translateY(12px) scale(0.985);
+  transition: transform 0.2s ease;
+}
+.modal-overlay.is-open .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* 3c. Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--ink-12);
+  border-radius: 50%;
+  color: var(--ink-60);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.modal-close:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.modal-close:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+/* 3d. Modal heading block — tighter than a full section */
+.modal-eye {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--acc);
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.modal-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.modal-h em { font-style: italic; color: var(--ink-40); }
+.modal-sub {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-60);
+  margin-bottom: 1.75rem;
+}
+
+/* 3e. Mobile */
+@media (max-width: 960px) {
+  .modal { padding: 2rem 1.5rem 2.25rem; }
+}
+
+/* Lock body scroll while modal open (class added by JS) */
+body.modal-open { overflow: hidden; }
+
 </style>
 </head>
 <body>
@@ -632,7 +741,7 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
   </ul>
   <div class="nav-ctas">
     <a href="sign-in.html" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
-    <a href="index.html#waitlist" class="nav-cta">Waitlist</a>
+    <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
   </div>
 </nav>
 
@@ -682,7 +791,7 @@ built on a personal conviction.</h1>
     <div class="bg-body bg-body-full">
       <p class="bg-lede">The decision to build Josefin came from a really personal place — I looked around me and saw friends and family drowning under the weight of managing full-time jobs and their households. It felt overwhelming, stressful, and people were just trying to deal in their own way — with varying results.</p>
       <p>Before I thought about building any code, I decided to live the solution. I became 'Josefin' for 2 months; manually serving households across London, Berlin, Cape Town and Lagos. 5 school emails a day of different lengths, detail and complexity. Children falling ill and rejecting weekly meal plans. Parents booking wrong flights. Calendar conflicts. Nanny coordination breakdowns. To-dos missed or forgotten. </p>
-      <p>I picked up on each issue, and thought through what households really need. <em>Visibility. Coordination. Reminders and follow-ups. Execution. A shared system.</em> That rigorous validation shaped everything about how Josefin works.</p>
+      <p>I picked up on each issue, and thought through what households really need. <em class="bg-pillars">Visibility. Coordination. Reminders and follow-ups. Execution. A shared system.</em> That rigorous validation shaped everything about how Josefin works.</p>
       <div class="bg-divider" aria-hidden="true"><span>—  §  —</span></div>
       <p>I spent the last 15 years solving consumer problems across industries - from building the non-flower gifting business at Bloom &amp; Wild, to driving marketing and strategy at LVMH team, to getting into the nuts and bolts of consumer businesses at McKinsey.</p>
       <p>But Josefin is different. This isn't about building another lifestyle brand or scaling a marketplace. It's about removing the sense of overwhelm, guilt and frustration that prevents people from being fully present in their lives, and enjoying their day-to-day.</p>
@@ -732,7 +841,7 @@ built on a personal conviction.</h1>
     <p class="cta-sub">Start free in the July beta, or join the waitlist for general access. London households first.</p>
     <div class="cta-actions">
       <a href="sign-in.html" class="btn-primary">Join July Beta <span class="free-pill">Free</span></a>
-      <a href="index.html#waitlist" class="btn-outline-dark">Join the Waitlist</a>
+      <a href="#" data-open-waitlist class="btn-outline-dark">Join the Waitlist</a>
     </div>
   </div>
 </section>
@@ -757,6 +866,135 @@ built on a personal conviction.</h1>
   window.addEventListener('scroll', function () {
     if (window.scrollY > 20) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+  });
+})();
+</script>
+
+
+<!-- WAITLIST MODAL -->
+<div class="modal-overlay" id="waitlistModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle">
+    <button type="button" class="modal-close" data-close-waitlist aria-label="Close">&#10005;</button>
+    <div class="modal-eye">Join the waitlist</div>
+    <h2 class="modal-h" id="waitlistModalTitle">Be first when <em>general access</em> opens.</h2>
+    <p class="modal-sub">The July beta is 50 households. Everyone else joins here &mdash; we&rsquo;ll write the moment a place opens. No spam, one email.</p>
+
+    <form class="form" id="waitlistForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label class="field-label" for="wl-name">Name</label>
+          <input class="input" type="text" id="wl-name" name="name"
+                 autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label class="field-label" for="wl-email">Email <span class="req">*</span></label>
+          <input class="input" type="email" id="wl-email" name="email"
+                 autocomplete="email" placeholder="you@example.com" required>
+          <span class="field-error" id="wl-email-error" hidden>Please enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="wl-city">City</label>
+        <select class="select" id="wl-city" name="city">
+          <option value="">Where are you based?</option>
+          <option>London</option>
+          <option>Berlin</option>
+          <option>Cape Town</option>
+          <option>Lagos</option>
+          <option value="other">Somewhere else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="wl-note">Anything we should know?</label>
+        <textarea class="textarea" id="wl-note" name="note"
+                  placeholder="Optional &mdash; tell us about your household."></textarea>
+        <span class="field-help">Optional. Helps us understand who&rsquo;s waiting.</span>
+      </div>
+
+      <div class="field">
+        <label class="check">
+          <input type="checkbox" name="consent" id="wl-consent" required>
+          <span>Email me once when a place opens. I can unsubscribe any time.</span>
+        </label>
+        <span class="field-error" id="wl-consent-error" hidden>Please tick the box so we can write to you.</span>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top:0.5rem;">Join the waitlist</button>
+
+      <p class="field-help" id="wl-status" style="margin-top:1rem;" hidden></p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* Waitlist modal — open/close + form validation. Works on every page. */
+(function(){
+  var modal = document.getElementById('waitlistModal');
+  if(!modal) return;
+  var lastFocus = null;
+
+  function openModal(e){
+    if(e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    var first = modal.querySelector('#wl-name');
+    if(first) first.focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if(lastFocus) lastFocus.focus();
+  }
+
+  /* Any element with data-open-waitlist opens the modal */
+  document.querySelectorAll('[data-open-waitlist]').forEach(function(el){
+    el.addEventListener('click', openModal);
+  });
+  /* Close: X button, backdrop click, Escape key */
+  modal.querySelectorAll('[data-close-waitlist]').forEach(function(el){
+    el.addEventListener('click', closeModal);
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  /* Form validation (same logic as before) */
+  var form = document.getElementById('waitlistForm');
+  if(!form) return;
+  var email = document.getElementById('wl-email');
+  var emailErr = document.getElementById('wl-email-error');
+  var consent = document.getElementById('wl-consent');
+  var consentErr = document.getElementById('wl-consent-error');
+  var status = document.getElementById('wl-status');
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    if(!validEmail(email.value.trim())){
+      email.closest('.field').classList.add('has-error');
+      emailErr.hidden = false; ok = false;
+    } else {
+      email.closest('.field').classList.remove('has-error');
+      emailErr.hidden = true;
+    }
+    if(!consent.checked){
+      consentErr.hidden = false; ok = false;
+    } else {
+      consentErr.hidden = true;
+    }
+    if(!ok) return;
+    /* NOTE: wire this to a real endpoint (POST to your list provider). */
+    status.hidden = false;
+    status.textContent = "Thank you \u2014 you\u2019re on the list. We\u2019ll be in touch.";
+    form.querySelector('button[type=submit]').classList.add('is-disabled');
   });
 })();
 </script>

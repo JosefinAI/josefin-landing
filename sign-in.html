@@ -199,7 +199,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smooth
 }
 
 
-/* ===== JOSEFIN SYSTEM ADDITIONS (interaction states + forms) ===== */
+/* ===== JOSEFIN SYSTEM ADDITIONS (interaction states + forms + modal) ===== */
 /* ============================================================
    JOSEFIN — SYSTEM ADDITIONS
    New CSS authored to close two gaps in the original site:
@@ -466,6 +466,114 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smooth
   .form-row { grid-template-columns: 1fr; gap: 0; }
 }
 
+/* ------------------------------------------------------------
+   3. WAITLIST MODAL  (NEW — replaces the inline #waitlist section)
+   A dialog overlay openable from any page via [data-open-waitlist].
+   Uses the same form pattern + system tokens.
+   ------------------------------------------------------------ */
+
+/* 3a. Backdrop — dim + blur over the page */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(14,13,10,0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 3b. Dialog panel */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--ink-12);
+  border-radius: 4px;
+  box-shadow: 0 32px 80px -16px rgba(14,13,10,0.45);
+  padding: 2.5rem 2.5rem 2.75rem;
+  transform: translateY(12px) scale(0.985);
+  transition: transform 0.2s ease;
+}
+.modal-overlay.is-open .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* 3c. Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--ink-12);
+  border-radius: 50%;
+  color: var(--ink-60);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.modal-close:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.modal-close:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+/* 3d. Modal heading block — tighter than a full section */
+.modal-eye {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--acc);
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.modal-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.modal-h em { font-style: italic; color: var(--ink-40); }
+.modal-sub {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-60);
+  margin-bottom: 1.75rem;
+}
+
+/* 3e. Mobile */
+@media (max-width: 960px) {
+  .modal { padding: 2rem 1.5rem 2.25rem; }
+}
+
+/* Lock body scroll while modal open (class added by JS) */
+body.modal-open { overflow: hidden; }
+
 </style>
 </head>
 <body>
@@ -526,15 +634,15 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smooth
           <p><b>Read-only to start.</b> Josefin reads what's needed to brief and coordinate. It only sends messages you've approved, until you tell it otherwise.</p>
         </div>
 
-        <p class="auth-legal">By continuing, you agree to Josefin's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        <p class="auth-legal">By continuing, you agree to Josefin's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
       </div>
     </div>
 
     <div class="auth-foot">
       <div class="auth-foot-copy">© 2025 Josefin</div>
       <div class="auth-foot-links">
-        <a href="mailto:hello@josefin.ai">Contact</a>
-        <a href="#">Help</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html">Help</a>
       </div>
     </div>
   </div>
@@ -561,9 +669,9 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smooth
     </div>
 
     <div class="signin-quote">
-      <p>"It's like having someone who's read every email, knows every diary entry, and remembers what you keep forgetting. After two weeks I stopped checking it would work."</p>
+      <p>"It's having someone who's reading every school email, knows every diary entry, and flags important things you keep forgetting. After two weeks I stopped reading the school emails &mdash; I trusted Josefin was getting it right."</p>
       <div class="cite">
-        <div class="cite-av">E</div>
+        <div class="cite-av">T</div>
         <div class="cite-meta">
           <b>Tara</b>
           <span>Mother of three · early access</span>
@@ -619,6 +727,135 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smooth
         btn.parentNode.appendChild(note);
       }
     });
+  });
+})();
+</script>
+
+
+<!-- WAITLIST MODAL -->
+<div class="modal-overlay" id="waitlistModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle">
+    <button type="button" class="modal-close" data-close-waitlist aria-label="Close">&#10005;</button>
+    <div class="modal-eye">Join the waitlist</div>
+    <h2 class="modal-h" id="waitlistModalTitle">Be first when <em>general access</em> opens.</h2>
+    <p class="modal-sub">The July beta is 50 households. Everyone else joins here &mdash; we&rsquo;ll write the moment a place opens. No spam, one email.</p>
+
+    <form class="form" id="waitlistForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label class="field-label" for="wl-name">Name</label>
+          <input class="input" type="text" id="wl-name" name="name"
+                 autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label class="field-label" for="wl-email">Email <span class="req">*</span></label>
+          <input class="input" type="email" id="wl-email" name="email"
+                 autocomplete="email" placeholder="you@example.com" required>
+          <span class="field-error" id="wl-email-error" hidden>Please enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="wl-city">City</label>
+        <select class="select" id="wl-city" name="city">
+          <option value="">Where are you based?</option>
+          <option>London</option>
+          <option>Berlin</option>
+          <option>Cape Town</option>
+          <option>Lagos</option>
+          <option value="other">Somewhere else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="wl-note">Anything we should know?</label>
+        <textarea class="textarea" id="wl-note" name="note"
+                  placeholder="Optional &mdash; tell us about your household."></textarea>
+        <span class="field-help">Optional. Helps us understand who&rsquo;s waiting.</span>
+      </div>
+
+      <div class="field">
+        <label class="check">
+          <input type="checkbox" name="consent" id="wl-consent" required>
+          <span>Email me once when a place opens. I can unsubscribe any time.</span>
+        </label>
+        <span class="field-error" id="wl-consent-error" hidden>Please tick the box so we can write to you.</span>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top:0.5rem;">Join the waitlist</button>
+
+      <p class="field-help" id="wl-status" style="margin-top:1rem;" hidden></p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* Waitlist modal — open/close + form validation. Works on every page. */
+(function(){
+  var modal = document.getElementById('waitlistModal');
+  if(!modal) return;
+  var lastFocus = null;
+
+  function openModal(e){
+    if(e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    var first = modal.querySelector('#wl-name');
+    if(first) first.focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if(lastFocus) lastFocus.focus();
+  }
+
+  /* Any element with data-open-waitlist opens the modal */
+  document.querySelectorAll('[data-open-waitlist]').forEach(function(el){
+    el.addEventListener('click', openModal);
+  });
+  /* Close: X button, backdrop click, Escape key */
+  modal.querySelectorAll('[data-close-waitlist]').forEach(function(el){
+    el.addEventListener('click', closeModal);
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  /* Form validation (same logic as before) */
+  var form = document.getElementById('waitlistForm');
+  if(!form) return;
+  var email = document.getElementById('wl-email');
+  var emailErr = document.getElementById('wl-email-error');
+  var consent = document.getElementById('wl-consent');
+  var consentErr = document.getElementById('wl-consent-error');
+  var status = document.getElementById('wl-status');
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    if(!validEmail(email.value.trim())){
+      email.closest('.field').classList.add('has-error');
+      emailErr.hidden = false; ok = false;
+    } else {
+      email.closest('.field').classList.remove('has-error');
+      emailErr.hidden = true;
+    }
+    if(!consent.checked){
+      consentErr.hidden = false; ok = false;
+    } else {
+      consentErr.hidden = true;
+    }
+    if(!ok) return;
+    /* NOTE: wire this to a real endpoint (POST to your list provider). */
+    status.hidden = false;
+    status.textContent = "Thank you \u2014 you\u2019re on the list. We\u2019ll be in touch.";
+    form.querySelector('button[type=submit]').classList.add('is-disabled');
   });
 })();
 </script>
