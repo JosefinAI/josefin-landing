@@ -680,7 +680,6 @@ body.modal-open { overflow: hidden; }
 <!-- Mobile nav drawer -->
 <div class="nav-mobile-drawer" id="navMobileDrawer">
   <button class="drawer-close" id="navDrawerClose" aria-label="Close menu"><span></span><span></span></button>
-  <a href="/" class="drawer-link" id="dl0">Home</a>
   <a href="/#how" class="drawer-link" id="dl1">How Josefin works</a>
   <a href="/why-josefin" class="drawer-link" id="dl2">Why Josefin</a>
   <a href="/#faq" class="drawer-link" id="dl3">FAQs</a>
@@ -699,7 +698,7 @@ body.modal-open { overflow: hidden; }
     document.getElementById('navMobileDrawer').classList.toggle('open');
   });
   document.getElementById('navDrawerClose').addEventListener('click', closeDrawer);
-  ['dl0','dl1','dl2','dl3'].forEach(function(id) {
+  ['dl1','dl2','dl3'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener('click', closeDrawer);
   });
