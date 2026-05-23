@@ -417,10 +417,30 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
   .understanding-sec { padding: 3.5rem 1.75rem; }
 }
 
+/* Hamburger button — hidden on desktop */
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+.nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; transition: all 0.25s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.nav-mobile-drawer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(223,222,219,0.98); backdrop-filter: blur(16px); z-index: 1050; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 2.5rem; gap: 0; }
+.nav-mobile-drawer.open { display: flex; }
+.nav-mobile-drawer .drawer-close { position: absolute; top: 1.25rem; right: 1.5rem; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-mobile-drawer .drawer-close span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; }
+.nav-mobile-drawer .drawer-close span:nth-child(1) { transform: translateY(0.75px) rotate(45deg); }
+.nav-mobile-drawer .drawer-close span:nth-child(2) { transform: translateY(-0.75px) rotate(-45deg); }
+.nav-mobile-drawer .drawer-link { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 2rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding: 0.75rem 0; border-bottom: 1px solid var(--ink-12); width: 100%; display: block; transition: color 0.15s; }
+.nav-mobile-drawer .drawer-link:last-of-type { border-bottom: none; }
+.nav-mobile-drawer .drawer-link:hover { color: var(--acc); }
+.nav-mobile-drawer .drawer-ctas { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
+
 @media (max-width: 960px) {
   nav { padding: 0 1.5rem; }
   .nav-links { display: none; }
   .nav-ctas .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
   .nav-cta-gold { padding: 0.45rem 0.8rem; font-size: 0.66rem; }
   .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 5rem 1.75rem 3rem; }
@@ -1242,8 +1262,37 @@ body.modal-open { overflow: hidden; }
   <div class="nav-ctas">
     <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile-drawer" id="navMobileDrawer">
+  <button class="drawer-close" id="navDrawerClose" aria-label="Close menu"><span></span><span></span></button>
+  <a href="#how" class="drawer-link" id="dl1">How Josefin works</a>
+  <a href="/why-josefin" class="drawer-link" id="dl2">Why Josefin</a>
+  <a href="#faq" class="drawer-link" id="dl3">FAQs</a>
+  <div class="drawer-ctas">
+    <a href="/sign-in" class="nav-cta-gold" style="text-align:center;">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="#" data-open-waitlist class="nav-cta" style="text-align:center;">Join Waitlist</a>
+  </div>
+</div>
+<script>
+  function closeDrawer() {
+    document.getElementById('navMobileDrawer').classList.remove('open');
+    document.getElementById('navHamburger').classList.remove('open');
+  }
+  document.getElementById('navHamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('navMobileDrawer').classList.toggle('open');
+  });
+  document.getElementById('navDrawerClose').addEventListener('click', closeDrawer);
+  ['dl1','dl2','dl3'].forEach(function(id) {
+    document.getElementById(id).addEventListener('click', closeDrawer);
+  });
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -1310,7 +1359,7 @@ body.modal-open { overflow: hidden; }
       <div class="sec-eye">The problem</div>
       <h2 class="problem-h">You didn't sign up to be the
 Household Project Manager.</h2>
-      <p class="problem-lede">The problem isn't your being last minute, disorganised, or too busy. It's that households don't have operating systems.</p>
+      <p class="problem-lede">The problem isn't you being last minute, disorganised, or too busy. It's that households don't have operating systems, and the fragmentation from holding all the cards is too much for one person.</p>
     </div>
     <div>
       <ul class="problem-bullets">
@@ -1844,6 +1893,13 @@ that acts.</h2>
     <div class="faq-list">
       <details class="faq-item">
         <summary class="faq-btn">
+          <span class="faq-q">What won't Josefin do?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-a"><div>Josefin doesn't replace the judgment of your nanny, partner, or the cousin who's babysitting. It makes sure they have what they need to make the right call, without defaulting back to you.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-btn">
           <span class="faq-q">Is my email data private?</span>
           <span class="faq-icon">+</span>
         </summary>
@@ -1863,13 +1919,7 @@ that acts.</h2>
         </summary>
         <div class="faq-a"><div>Gmail at launch (July 2026), accessed via Google OAuth 2.0 (read-only permissions). Outlook support coming Q3 2026. We use read-only access, meaning Josefin can read your emails to extract tasks and events, but cannot send, reply to, or delete emails on your behalf, until you instruct it to. You can also forward or cc emails to a customised @josefin.ai address. Apple Mail and others are on the roadmap.</div></div>
       </details>
-      <details class="faq-item">
-        <summary class="faq-btn">
-          <span class="faq-q">What won't Josefin do?</span>
-          <span class="faq-icon">+</span>
-        </summary>
-        <div class="faq-a"><div>Josefin isn't a replacement for human decision-making. It offers options and drafts messages, but you approve before anything external is sent. It's also not replacing your existing tools. Josefin works primarily with Gmail, Google Calendar, and WhatsApp rather than introducing new apps to learn. Importantly, Josefin does not read your WhatsApp messages, unless it's in a direct conversation, or in a Group you've added it to.</div></div>
-      </details>
+      
       <details class="faq-item">
         <summary class="faq-btn">
           <span class="faq-q">Do I need to coordinate with multiple people for this to work?</span>
