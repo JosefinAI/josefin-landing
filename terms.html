@@ -99,6 +99,25 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+
+/* Hamburger button */
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+.nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; transition: all 0.25s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.nav-mobile-drawer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(223,222,219,0.98); backdrop-filter: blur(16px); z-index: 1050; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 2.5rem; gap: 0; }
+.nav-mobile-drawer.open { display: flex; }
+.nav-mobile-drawer .drawer-close { position: absolute; top: 1.25rem; right: 1.5rem; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-mobile-drawer .drawer-close span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; }
+.nav-mobile-drawer .drawer-close span:nth-child(1) { transform: translateY(0.75px) rotate(45deg); }
+.nav-mobile-drawer .drawer-close span:nth-child(2) { transform: translateY(-0.75px) rotate(-45deg); }
+.nav-mobile-drawer .drawer-link { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 1.45rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding: 0.75rem 0; border-bottom: 1px solid var(--ink-12); width: 100%; display: block; transition: color 0.15s; }
+.nav-mobile-drawer .drawer-link:last-of-type { border-bottom: none; }
+.nav-mobile-drawer .drawer-link:hover { color: var(--acc); }
+.nav-mobile-drawer .drawer-ctas { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 </style>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -592,25 +611,6 @@ footer { background: var(--bg); border-top: 1px solid var(--ink-06); padding: 3r
 /* Lock body scroll while modal open (class added by JS) */
 body.modal-open { overflow: hidden; }
 
-
-/* Hamburger button */
-.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
-.nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; transition: all 0.25s; }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* Mobile nav drawer */
-.nav-mobile-drawer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(223,222,219,0.98); backdrop-filter: blur(16px); z-index: 1050; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 2.5rem; gap: 0; }
-.nav-mobile-drawer.open { display: flex; }
-.nav-mobile-drawer .drawer-close { position: absolute; top: 1.25rem; right: 1.5rem; background: none; border: none; cursor: pointer; padding: 4px; }
-.nav-mobile-drawer .drawer-close span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 0; }
-.nav-mobile-drawer .drawer-close span:nth-child(1) { transform: translateY(0.75px) rotate(45deg); }
-.nav-mobile-drawer .drawer-close span:nth-child(2) { transform: translateY(-0.75px) rotate(-45deg); }
-.nav-mobile-drawer .drawer-link { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 1.45rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding: 0.75rem 0; border-bottom: 1px solid var(--ink-12); width: 100%; display: block; transition: color 0.15s; }
-.nav-mobile-drawer .drawer-link:last-of-type { border-bottom: none; }
-.nav-mobile-drawer .drawer-link:hover { color: var(--acc); }
-.nav-mobile-drawer .drawer-ctas { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
 </style>
 </head>
 <body>
@@ -681,9 +681,9 @@ body.modal-open { overflow: hidden; }
 <div class="nav-mobile-drawer" id="navMobileDrawer">
   <button class="drawer-close" id="navDrawerClose" aria-label="Close menu"><span></span><span></span></button>
   <a href="/" class="drawer-link" id="dl0">Home</a>
-  <a href="#how" class="drawer-link" id="dl1">How Josefin works</a>
+  <a href="/why-josefin" class="drawer-link" id="dl1">How Josefin works</a>
   <a href="/why-josefin" class="drawer-link" id="dl2">Why Josefin</a>
-  <a href="#faq" class="drawer-link" id="dl3">FAQs</a>
+  <a href="/#faq" class="drawer-link" id="dl3">FAQs</a>
   <div class="drawer-ctas">
     <a href="/sign-in" class="nav-cta-gold" style="text-align:center;">Join July Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta" style="text-align:center;">Join Waitlist</a>
