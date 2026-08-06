@@ -715,8 +715,233 @@ body.modal-open { overflow: hidden; }
 
     <!-- BODY -->
     <section class="email-block">
-      <p class="holding-lede" style="margin-top:0;">We're currently finalizing our privacy policy ahead of our July 2026 launch.</p>
-      <p class="email-note" style="margin-top:2rem;">If you have questions about how Josefin handles your data, email us at <a href="mailto:hello@josefin.ai" style="color:var(--ink);border-bottom:1px solid var(--ink-30);text-decoration:none;padding-bottom:0.1rem;">hello@josefin.ai</a>.</p>
+      <p><em>Privacy Policy for Josefin's Beta.</em></p>
+<p><em><strong>Last updated: 6 August 2026</strong></em></p>
+<p><strong>Contents</strong></p>
+<p>1. Introduction · 2. Who We Are · 3. Information We Collect · 4. Google User Data · 5. How We Use Your Information · 6. Google API Services Limited Use Disclosure · 7. Legal Basis for Processing · 8. Data Sharing and Sub-processors · 9. International Transfers · 10. Data Retention and Deletion · 11. Data Security · 12. Your Rights · 13. SMS and WhatsApp Messaging · 14. Cookies and Analytics · 15. Children's Data · 16. Changes to This Policy · 17. Contact Us</p>
+<h2 id="introduction">1. Introduction</h2>
+<p>Welcome to Josefin ("Josefin", "we", "our", "us"). Josefin is intelligent household infrastructure: an AI-powered household operating system that connects parents, partners, and caregivers through the tools they already use, so the logistical and mental load of running a household gets captured, routed, and closed without anyone having to chase it.</p>
+<p>We are Josefin Ltd., a company registered in England and Wales. For the purposes of UK data protection law, we are the data controller of your personal data.</p>
+<p>This policy covers the <strong>Beta (pilot) version</strong> of Josefin. Josefin is in active development. Our processing, storage, and security measures are scoped to the pilot's narrow purpose — capturing and routing school and household logistics for a small number of pilot households — and will be reviewed and updated as the product expands beyond pilot.</p>
+<p>Your data is never sold. Your data is never used to train third-party AI models. Josefin never sends a message, writes a calendar event, or takes any action on your behalf without the routing and confirmation rules described below.</p>
+<p>This policy applies to all users of the Josefin pilot, whether you join via email/WhatsApp forwarding or by connecting your Gmail or Google Calendar.</p>
+<h2 id="who-we-are">2. Who We Are</h2>
+<ul>
+<li><p>Josefin Ltd., Company No. 16938028</p></li>
+<li><p>Registered office: 227 Ladbroke Grove, London W10 6HG</p></li>
+<li><p>Privacy contact: Wande Abe, Founder and CEO — privacy@josefin.ai</p></li>
+</ul>
+<p><em>No Data Protection Officer is currently appointed. Josefin does not meet the mandatory threshold for a DPO under Article 37 UK GDPR at pilot scale, and does not process special category data at Beta stage (Section 7). Wande Abe is named as the accountable contact for Article 13 purposes.</em></p>
+<h2 id="information-we-collect">3. Information We Collect</h2>
+<h3 id="account-and-household-information">3.1 Account and Household Information</h3>
+<p>When a household joins the pilot, we collect: the primary parent's name, email address, and phone number; household members added by the primary parent (name, role — parent, partner, or nanny — phone number, and email address where provided); and children referenced in the household (first name, school, and extra-curricular activities only). Children do not hold Josefin accounts and do not interact with Josefin directly.</p>
+<h3 id="forwarded-content">3.2 Forwarded Content</h3>
+<p>Josefin's core function is processing content households choose to send it. This includes:</p>
+<ul>
+<li><p>Emails forwarded to your household's dedicated Josefin inbound address</p></li>
+<li><p>Messages, photos, and screenshots sent via WhatsApp to your Josefin number</p></li>
+<li><p>The extracted, structured version of that content — dates, times, the child or activity referenced, and the action required — which we generate to route the item and mark it complete</p></li>
+</ul>
+<p>We only process content that is actively sent or forwarded to Josefin. We do not have standing access to your inbox or WhatsApp account unless you separately connect it via Google OAuth (see Section 4).</p>
+<h3 id="sms-and-whatsapp-delivery-data">3.3 SMS and WhatsApp Delivery Data</h3>
+<p>We process the phone numbers of household members to deliver confirmations, routing notifications, reminders, and completion replies by SMS, and to receive forwarded content by WhatsApp. This generates delivery metadata (timestamps, delivery status, and consent/opt-out status). Message content sent to Josefin via WhatsApp is transmitted to our messaging infrastructure provider (Twilio) and, where required for delivery, to WhatsApp's operator (Meta), which processes such data under its own separate terms. Phone numbers, message content, and delivery metadata are used only to provide the messaging features described in this policy and in our sub-processor list (Section 8).</p>
+<h3 id="technical-and-usage-data">3.4 Technical and Usage Data</h3>
+<p>We automatically collect limited technical data (IP address, device and browser type) and product usage data (which features are used, extraction accuracy signals, and setup completion) to operate and improve the pilot. This is collected via PostHog — see Section 14.</p>
+<h2 id="google-user-data">4. Google User Data</h2>
+<p>Households may optionally connect a Google account instead of forwarding content manually. This is entirely optional during the pilot; forwarding remains fully supported without connecting any Google account.</p>
+<h3 id="what-we-access">4.1 What We Access</h3>
+<ul>
+<li><p>Google Calendar (mandatory for the Google-connected path): read and write access, used to create, update, and read events relevant to household logistics. Google classifies this as a "sensitive" scope.</p></li>
+<li><p>Gmail (optional, only if you separately enable it): read access to email content, used to identify and extract school and household logistics items without you needing to forward them manually. Google classifies this as a "restricted" scope, subject to Google's annual third-party security assessment (CASA) requirement.</p></li>
+</ul>
+<p>We only request the Google scopes necessary for the features you have enabled. You can revoke Josefin's access at any time via your Google Account permissions page or by contacting us.</p>
+<h3 id="how-we-use-google-user-data">4.2 How We Use Google User Data</h3>
+<p>Google user data is used exclusively to identify household logistics items (dates, deadlines, action items), create and update calendar events reflecting them, and route the resulting task to the right household member. It is not used for any other purpose.</p>
+<h3 id="how-we-share-google-user-data">4.3 How We Share Google User Data</h3>
+<p>Email and calendar content you connect is sent to Anthropic (our AI processing provider) solely to extract structured task and event information. It is not sold, shared with advertisers, or used to train any third-party AI model. See Section 8 for our full sub-processor list.</p>
+<h2 id="how-we-use-your-information">5. How We Use Your Information</h2>
+<p>We use the information described above to:</p>
+<ul>
+<li><p>Identify and extract logistics items (dates, deadlines, actions) from forwarded or connected content</p></li>
+<li><p>Route each item to the correct household member by SMS</p></li>
+<li><p>Create and update calendar events where you have connected Google Calendar</p></li>
+<li><p>Send confirmations, reminders, and completion check-ins</p></li>
+<li><p>Detect duplicate submissions and prevent double-booking or double-notifying</p></li>
+<li><p>Monitor and improve extraction accuracy, using a labelled internal test set, not your identified household data, wherever practicable</p></li>
+<li><p>Operate, secure, and troubleshoot the Service</p></li>
+</ul>
+<p>We do not use household content for advertising, and we do not use it to train third-party AI models, in line with the AI-provider terms described in Section 8.</p>
+<h3 id="automated-extraction-and-profiling">5.1 Automated Extraction and Profiling</h3>
+<p>To route items and build a household's ontology over time, Josefin automatically analyses forwarded and connected content to identify structured facts — dates, deadlines, the child or activity referenced, and the household member responsible. Under applicable data protection law, evaluating aspects of a household's activity through this kind of automated analysis may constitute profiling.</p>
+<p>Josefin does not make decisions based solely on automated processing that produce legal or similarly significant effects concerning you. Every routed item, calendar event, and message Josefin sends is subject to the confirmation and human-in-the-loop gates described throughout this policy — nothing is sent, deleted, or acted on irreversibly without a household member's review. You may object to this processing or request human review of any automated output by contacting us (Section 17).</p>
+<h2 id="google-api-services-limited-use-disclosure">6. Google API Services Limited Use Disclosure</h2>
+<p>Josefin's use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Specifically:</p>
+<ul>
+<li><p>We only use data obtained via Google APIs to provide or improve user-facing features that are prominent in the Josefin application.</p></li>
+<li><p>We do not transfer Google user data to others except to provide or improve those features, to comply with applicable law, or as part of a merger or acquisition with your prior notice.</p></li>
+<li><p>We do not use or transfer Google user data for serving advertisements of any kind.</p></li>
+<li><p>We do not allow humans to read your Google user data except where you have given affirmative agreement for a specific interaction, where necessary to investigate a security or abuse issue, where required by law, or where the data has been aggregated and anonymised for internal operations.</p></li>
+</ul>
+<h2 id="legal-basis-for-processing">7. Legal Basis for Processing</h2>
+<p>Under UK GDPR, we process personal data on the following bases:</p>
+<ul>
+<li><p>Contract (Article 6(1)(b)): processing household member data necessary to provide the Josefin pilot service to the primary parent and any household members they add.</p></li>
+<li><p>Consent (Article 6(1)(a)): SMS delivery to household members, and the connection of any Google account, are both consent-based and can be withdrawn at any time — see Section 13.</p></li>
+<li><p>Legitimate interests (Article 6(1)(f)): maintaining and improving extraction accuracy, detecting abuse, and ensuring service reliability, where this does not override your rights. A short legitimate interests assessment is available on request.</p></li>
+</ul>
+<p><em>The pilot does not currently collect special category data (e.g. health or allergy information) about any household member or child. If that changes, this policy and its legal basis section will be updated before that data is collected, and Article 9 explicit consent will be obtained separately.</em></p>
+<h2 id="data-sharing-and-sub-processors">8. Data Sharing and Sub-processors</h2>
+<p>We do not sell personal data. We share data with the following service providers, each acting as a data processor under contractual terms:</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sub-processor</strong></td>
+<td><strong>Purpose</strong></td>
+<td><strong>Data processed</strong></td>
+<td><strong>Location</strong></td>
+</tr>
+<tr class="even">
+<td>Anthropic</td>
+<td>AI extraction of logistics items from forwarded/connected content</td>
+<td>Email, WhatsApp, and calendar content sent for processing</td>
+<td>United States</td>
+</tr>
+<tr class="odd">
+<td>Twilio</td>
+<td>SMS and WhatsApp delivery (inbound and outbound), and WhatsApp inbound message capture</td>
+<td>Phone numbers, message content, delivery metadata</td>
+<td>EU (Ireland)</td>
+</tr>
+<tr class="even">
+<td>Google</td>
+<td>Calendar read/write; optional Gmail read (where connected)</td>
+<td>Calendar and, if enabled, email content and metadata</td>
+<td>United States / EU</td>
+</tr>
+<tr class="odd">
+<td>Cloudflare</td>
+<td>Inbound email routing to Josefin's ingestion address</td>
+<td>Forwarded email content and headers</td>
+<td>Global network (Customer DPA / SCCs)</td>
+</tr>
+<tr class="even">
+<td>Supabase</td>
+<td>Application database — household, member, and item records</td>
+<td>All structured household data described in Section 3</td>
+<td>EU</td>
+</tr>
+<tr class="odd">
+<td>Vercel</td>
+<td>Application hosting</td>
+<td>Technical/request data</td>
+<td>Europe (London)</td>
+</tr>
+<tr class="even">
+<td>Sentry</td>
+<td>Error monitoring</td>
+<td>Technical error logs, may incidentally include fragments of request data</td>
+<td>EU</td>
+</tr>
+<tr class="odd">
+<td>PostHog</td>
+<td>Product usage analytics</td>
+<td>Usage events, device/browser metadata</td>
+<td>EU</td>
+</tr>
+</tbody>
+</table>
+<p>WhatsApp messages also involve WhatsApp's operator, Meta, as described in Section 3.3 — Meta is not a contracted sub-processor of Josefin's and processes such data under its own terms.</p>
+<p><strong>Each sub-processor is engaged under its own standard data processing terms, consistent with UK GDPR Article 28. Official data processing terms for each provider:</strong></p>
+<p>Anthropic — anthropic.com/legal/data-processing-addendum</p>
+<p>Twilio — twilio.com/legal/data-protection-addendum</p>
+<p>Google — cloud.google.com/terms/data-processing-addendum</p>
+<p>Cloudflare — cloudflare.com/cloudflare-customer-dpa</p>
+<p>Supabase — supabase.com/legal/dpa</p>
+<p>Vercel — vercel.com/legal/dpa</p>
+<p>Sentry — sentry.io/legal/dpa</p>
+<p>PostHog — posthog.com/dpa</p>
+<p>We will update this page if, and when, sub-processors change. If you have questions, contact privacy@josefin.ai</p>
+<h2 id="international-transfers">9. International Transfers</h2>
+<p>Twilio, Supabase, and Sentry process pilot data within the EU/EEA for this account, so no restricted transfer applies to those three under UK GDPR Chapter V.</p>
+<p>Vercel's function region is configured and confirmed for Europe (London).</p>
+<p>Cloudflare Email Routing operates on a global anycast network by design and does not offer per-project region locking outside its Enterprise-tier Data Localization Suite. We rely on Cloudflare's published Customer DPA, which incorporates the UK Addendum and EU SCCs, as the transfer mechanism for this provider.</p>
+<p>Anthropic and, where the Gmail-connected path is used, certain Google processing occur in the United States. Where we transfer personal data outside the UK, we rely on appropriate safeguards recognised under UK GDPR — for Anthropic, this is the UK SCCs incorporated into its standard Data Processing Addendum, consistent with the main Josefin DPIA. For Google, we rely on Google's standard data processing terms and, where applicable, the EU-US Data Privacy Framework.</p>
+<h2 id="data-retention-and-deletion">10. Data Retention and Deletion</h2>
+<p>We retain personal data only for as long as necessary for the purposes described in this policy.</p>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Data category</strong></td>
+<td><strong>Retention period</strong></td>
+</tr>
+<tr class="even">
+<td>Account and household records (households, members, children)</td>
+<td>Duration of the Beta pilot, plus 30 days for outcome analysis, then deleted or anonymised</td>
+</tr>
+<tr class="odd">
+<td>Forwarded content and extracted items (forwards, items)</td>
+<td>Duration of the Beta pilot, plus 30 days for outcome analysis, then deleted</td>
+</tr>
+<tr class="even">
+<td>Google OAuth tokens (access and refresh)</td>
+<td>Retained only while the connection is active. Deleted immediately on disconnection.</td>
+</tr>
+<tr class="odd">
+<td>SMS/WhatsApp delivery metadata</td>
+<td>12 months</td>
+</tr>
+<tr class="even">
+<td>Usage and technical data (PostHog, Sentry)</td>
+<td>12 months</td>
+</tr>
+<tr class="odd">
+<td>Prospect data (enquirers who do not join the pilot)</td>
+<td>14 days, on a legitimate interests basis</td>
+</tr>
+</tbody>
+</table>
+<p>You can request deletion of your household's data at any time by contacting us (Section 17). We will delete or anonymise your data within 30 days of a verified request, except where we are required to retain it by law.</p>
+<h2 id="data-security">11. Data Security</h2>
+<p>We apply technical and organisational measures appropriate to a pilot-stage product, including encryption of data in transit (TLS) and access controls limiting who can view household data.</p>
+<p>Google Calendar OAuth (the default connected path) is available from pilot launch. Gmail read access — a Google-classified restricted scope requiring annual third-party security assessment (CASA) — uses application-layer encryption of stored OAuth tokens (access and refresh tokens), enforced at the database level using a dedicated encryption key separate from the database's own infrastructure-level encryption, so that any attempt to write an unencrypted token is rejected outright rather than relying on application-code discipline alone.</p>
+<p>In the event of a suspected personal data breach, we will assess and contain it, notify the ICO within 72 hours where required under Article 33 UK GDPR, and notify affected households without undue delay where the breach is likely to result in a high risk to their rights and freedoms.</p>
+<h2 id="your-rights">12. Your Rights</h2>
+<p>Under UK data protection law, you have the right to access, correct, delete, restrict, or port your personal data, to object to processing based on legitimate interests, and to withdraw consent at any time where processing relies on it. To exercise any of these rights, contact us using the details in Section 17. We will respond within one month.</p>
+<p>Where processing involves the automated extraction described in Section 5.1, you also have the right to object to that processing or to request human review of any automated output, by contacting us at the details in Section 17.</p>
+<p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO): ico.org.uk/make-a-complaint</p>
+<h2 id="sms-and-whatsapp-messaging">13. SMS and WhatsApp Messaging</h2>
+<p>If you are the primary parent signing up, you provide explicit consent to receive SMS messages from Josefin at signup. If you add a partner, nanny, or other household member, they receive a one-time introductory message before any routing messages are sent to them — this is their opportunity to confirm or decline.</p>
+<ul>
+<li><p>Message and data rates may apply.</p></li>
+<li><p>Message frequency depends on household activity.</p></li>
+<li><p>Reply STOP at any time to opt out. This immediately stops all further messages to that number, regardless of household role.</p></li>
+<li><p>Sending content to Josefin via WhatsApp does not automatically enrol you in additional outbound WhatsApp messaging beyond what's needed to acknowledge or process what you've sent. Where Josefin sends confirmations, routing notifications, or reminders via WhatsApp rather than SMS, the same consent and STOP opt-out described above apply</p></li>
+</ul>
+<h2 id="cookies-and-analytics">14. Cookies and Analytics</h2>
+<p>Our website and product use PostHog for essential functionality and usage analytics. You can control cookies through your browser settings.</p>
+<h2 id="childrens-data">15. Children's Data</h2>
+<p>Josefin is intended for use by adults. We do not knowingly allow anyone under 18 to hold a Josefin account. Children are referenced within a household account (first name, school and activities only) by the adult primary account holder, who provides consent for this on the household's behalf. Josefin does not currently collect health, allergy, or other special category data about children during the pilot; see Section 7.</p>
+<p>Josefin may process school communications and other content that references children as part of providing the service to the parent or guardian who holds the account. This information is subject to the same protections described throughout this policy.</p>
+<h2 id="changes-to-this-policy">16. Changes to This Policy</h2>
+<p>We will update this policy as the pilot evolves, and will notify households of material changes. This policy is expected to change materially if Josefin moves beyond the pilot scope described here.</p>
+<h2 id="contact-us">17. Contact Us</h2>
+<p>Questions about this policy or your data:</p>
+<ul>
+<li><p>Josefin Ltd. (UK Companies House number: 16938028)</p></li>
+<li><p>Contact: Wande Abe, Founder and CEO</p></li>
+<li><p>Email: privacy@josefin.ai</p></li>
+</ul>
+<p>You have the right to lodge a complaint with the ICO: ico.org.uk/make-a-complaint</p>
     </section>
 
     <div class="rule"></div>
