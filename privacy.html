@@ -715,9 +715,137 @@ body.modal-open { overflow: hidden; }
 
     <!-- BODY -->
     <section class="email-block">
-      <p><em>Privacy Policy for Josefin's Beta.</em></p>
+     <style>
+/* Privacy policy body styling — uses Josefin design tokens.
+   Scoped under .priv-body so it never leaks into surrounding page chrome. */
+.priv-body {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-light, 300);
+  font-size: var(--text-md-2, 0.9rem);
+  line-height: var(--leading-normal, 1.7);
+  color: var(--color-ink, #0E0D0A);
+}
+
+.priv-body em { color: var(--color-ink-60, rgba(14,13,10,0.60)); font-style: italic; }
+.priv-body strong { font-weight: var(--weight-medium, 500); }
+.priv-body a { color: var(--color-acc, #C49020); text-decoration: underline; text-underline-offset: 2px; }
+.priv-body a:hover { opacity: 0.8; }
+
+.priv-body > p:first-child {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-size: var(--text-lg, 0.95rem);
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: 0.35rem;
+}
+.priv-body > p:nth-child(2) {
+  font-size: var(--text-sm-2, 0.72rem);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: var(--space-2, 2rem);
+}
+
+.priv-contents-label {
+  font-size: var(--text-sm, 0.7rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: 0.5rem;
+}
+.priv-body > p:nth-child(4) {
+  font-size: var(--text-sm-2, 0.72rem);
+  line-height: var(--leading-relaxed, 1.85);
+  color: var(--color-ink-40, rgba(14,13,10,0.40));
+  padding-bottom: var(--space-2, 2rem);
+  border-bottom: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+  margin-bottom: var(--space-2-5, 2.5rem);
+}
+
+.priv-body h2 {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-weight: var(--weight-light, 300);
+  font-size: var(--text-6xl, 1.7rem);
+  line-height: var(--leading-tight, 1.1);
+  letter-spacing: var(--tracking-tight, -0.01em);
+  color: var(--color-ink, #0E0D0A);
+  margin-top: var(--space-3, 3rem);
+  margin-bottom: var(--space-1, 1rem);
+  padding-top: var(--space-2, 2rem);
+  border-top: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+}
+.priv-body h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+.priv-body h3 {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-medium, 500);
+  font-size: var(--text-lg, 0.95rem);
+  color: var(--color-ink, #0E0D0A);
+  margin-top: var(--space-1-75, 1.75rem);
+  margin-bottom: var(--space-0-5, 0.5rem);
+}
+
+.priv-body p { margin-bottom: var(--space-1, 1rem); }
+
+.priv-body ul {
+  margin: 0 0 var(--space-1, 1rem) 0;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+.priv-body ul li {
+  position: relative;
+  padding-left: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.priv-body ul li p { margin-bottom: 0; }
+.priv-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-acc, #C49020);
+}
+
+.priv-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-1-5, 1.5rem) 0 var(--space-2, 2rem);
+  font-size: var(--text-sm-2, 0.72rem);
+}
+.priv-body th,
+.priv-body td {
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+  vertical-align: top;
+  line-height: var(--leading-snug, 1.5);
+}
+.priv-body thead th,
+.priv-body table:not(.priv-table) tr:first-child td {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-medium, 500);
+  font-size: var(--text-sm, 0.7rem);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  background: var(--color-bg-mid, #F4F2EE);
+}
+.priv-body tbody tr:nth-child(even) { background: var(--color-bg-mid, #F4F2EE); }
+
+@media (max-width: 960px) {
+  .priv-body table { font-size: var(--text-2xs, 0.62rem); }
+  .priv-body th, .priv-body td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+<div class="priv-body">
+<p><em>Privacy Policy for Josefin's Beta.</em></p>
 <p><em><strong>Last updated: 6 August 2026</strong></em></p>
-<p><strong>Contents</strong></p>
+<p class="priv-contents-label">Contents</p>
 <p>1. Introduction · 2. Who We Are · 3. Information We Collect · 4. Google User Data · 5. How We Use Your Information · 6. Google API Services Limited Use Disclosure · 7. Legal Basis for Processing · 8. Data Sharing and Sub-processors · 9. International Transfers · 10. Data Retention and Deletion · 11. Data Security · 12. Your Rights · 13. SMS and WhatsApp Messaging · 14. Cookies and Analytics · 15. Children's Data · 16. Changes to This Policy · 17. Contact Us</p>
 <h2 id="introduction">1. Introduction</h2>
 <p>Welcome to Josefin ("Josefin", "we", "our", "us"). Josefin is intelligent household infrastructure: an AI-powered household operating system that connects parents, partners, and caregivers through the tools they already use, so the logistical and mental load of running a household gets captured, routed, and closed without anyone having to chase it.</p>
@@ -738,17 +866,18 @@ body.modal-open { overflow: hidden; }
 <h3 id="forwarded-content">3.2 Forwarded Content</h3>
 <p>Josefin's core function is processing content households choose to send it. This includes:</p>
 <ul>
-<li><p>Emails forwarded to your household's dedicated Josefin inbound address</p></li>
+<li><p>Emails forwarded to Josefin's shared inbound address (<a href="mailto:families@josefin.ai">families@josefin.ai</a>), matched to your household by the sender's registered email address</p></li>
 <li><p>Messages, photos, and screenshots sent via WhatsApp to your Josefin number</p></li>
 <li><p>The extracted, structured version of that content — dates, times, the child or activity referenced, and the action required — which we generate to route the item and mark it complete</p></li>
 </ul>
-<p>We only process content that is actively sent or forwarded to Josefin. We do not have standing access to your inbox or WhatsApp account unless you separately connect it via Google OAuth (see Section 4).</p>
+<p>We only process content that is actively sent or forwarded to Josefin. Because this is a shared inbox rather than a household-specific address, Josefin identifies which household a forwarded email belongs to by matching the sender's email address against registered household members. If a forward arrives from an unrecognised address, it is held unmatched and flagged for manual review rather than processed automatically.</p>
+<p>We will only access your inbox directly if you separately connect it via Google OAuth (see Section 4).</p>
 <h3 id="sms-and-whatsapp-delivery-data">3.3 SMS and WhatsApp Delivery Data</h3>
 <p>We process the phone numbers of household members to deliver confirmations, routing notifications, reminders, and completion replies by SMS, and to receive forwarded content by WhatsApp. This generates delivery metadata (timestamps, delivery status, and consent/opt-out status). Message content sent to Josefin via WhatsApp is transmitted to our messaging infrastructure provider (Twilio) and, where required for delivery, to WhatsApp's operator (Meta), which processes such data under its own separate terms. Phone numbers, message content, and delivery metadata are used only to provide the messaging features described in this policy and in our sub-processor list (Section 8).</p>
 <h3 id="technical-and-usage-data">3.4 Technical and Usage Data</h3>
 <p>We automatically collect limited technical data (IP address, device and browser type) and product usage data (which features are used, extraction accuracy signals, and setup completion) to operate and improve the pilot. This is collected via PostHog — see Section 14.</p>
 <h2 id="google-user-data">4. Google User Data</h2>
-<p>Households may optionally connect a Google account instead of forwarding content manually. This is entirely optional during the pilot; forwarding remains fully supported without connecting any Google account.</p>
+<p>Households may optionally connect a Google account instead of forwarding content manually. This is entirely optional during the pilot; forwarding remains fully supported without connecting any Google account. This section also applies to content forwarded to Josefin's own inbox (<a href="mailto:families@josefin.ai">families@josefin.ai</a>): because that inbox is itself a Google account accessed via the Gmail API, the same handling, use limitations, and Google Limited Use requirements described in this section and Section 6 apply to it, even though no individual household connects or authorises that access directly.</p>
 <h3 id="what-we-access">4.1 What We Access</h3>
 <ul>
 <li><p>Google Calendar (mandatory for the Google-connected path): read and write access, used to create, update, and read events relevant to household logistics. Google classifies this as a "sensitive" scope.</p></li>
@@ -775,7 +904,7 @@ body.modal-open { overflow: hidden; }
 <p>To route items and build a household's ontology over time, Josefin automatically analyses forwarded and connected content to identify structured facts — dates, deadlines, the child or activity referenced, and the household member responsible. Under applicable data protection law, evaluating aspects of a household's activity through this kind of automated analysis may constitute profiling.</p>
 <p>Josefin does not make decisions based solely on automated processing that produce legal or similarly significant effects concerning you. Every routed item, calendar event, and message Josefin sends is subject to the confirmation and human-in-the-loop gates described throughout this policy — nothing is sent, deleted, or acted on irreversibly without a household member's review. You may object to this processing or request human review of any automated output by contacting us (Section 17).</p>
 <h2 id="google-api-services-limited-use-disclosure">6. Google API Services Limited Use Disclosure</h2>
-<p>Josefin's use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Specifically:</p>
+<p>Josefin's use and transfer to any other app of information received from all Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Specifically:</p>
 <ul>
 <li><p>We only use data obtained via Google APIs to provide or improve user-facing features that are prominent in the Josefin application.</p></li>
 <li><p>We do not transfer Google user data to others except to provide or improve those features, to comply with applicable law, or as part of a merger or acquisition with your prior notice.</p></li>
@@ -816,7 +945,7 @@ body.modal-open { overflow: hidden; }
 <td>Twilio</td>
 <td>SMS and WhatsApp delivery (inbound and outbound), and WhatsApp inbound message capture</td>
 <td>Phone numbers, message content, delivery metadata</td>
-<td>EU (Ireland)</td>
+<td>EU (Ireland) for Voice; US for SMS/WhatsApp messaging – see Section 9</td>
 </tr>
 <tr class="even">
 <td>Google</td>
@@ -825,30 +954,24 @@ body.modal-open { overflow: hidden; }
 <td>United States / EU</td>
 </tr>
 <tr class="odd">
-<td>Cloudflare</td>
-<td>Inbound email routing to Josefin's ingestion address</td>
-<td>Forwarded email content and headers</td>
-<td>Global network (Customer DPA / SCCs)</td>
-</tr>
-<tr class="even">
 <td>Supabase</td>
 <td>Application database — household, member, and item records</td>
 <td>All structured household data described in Section 3</td>
 <td>EU</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vercel</td>
 <td>Application hosting</td>
 <td>Technical/request data</td>
 <td>Europe (London)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Sentry</td>
 <td>Error monitoring</td>
 <td>Technical error logs, may incidentally include fragments of request data</td>
 <td>EU</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>PostHog</td>
 <td>Product usage analytics</td>
 <td>Usage events, device/browser metadata</td>
@@ -861,16 +984,14 @@ body.modal-open { overflow: hidden; }
 <p>Anthropic — anthropic.com/legal/data-processing-addendum</p>
 <p>Twilio — twilio.com/legal/data-protection-addendum</p>
 <p>Google — cloud.google.com/terms/data-processing-addendum</p>
-<p>Cloudflare — cloudflare.com/cloudflare-customer-dpa</p>
 <p>Supabase — supabase.com/legal/dpa</p>
 <p>Vercel — vercel.com/legal/dpa</p>
 <p>Sentry — sentry.io/legal/dpa</p>
 <p>PostHog — posthog.com/dpa</p>
 <p>We will update this page if, and when, sub-processors change. If you have questions, contact privacy@josefin.ai</p>
 <h2 id="international-transfers">9. International Transfers</h2>
-<p>Twilio, Supabase, and Sentry process pilot data within the EU/EEA for this account, so no restricted transfer applies to those three under UK GDPR Chapter V.</p>
+<p>Supabase and Sentry process pilot data within the EU/EEA for this account, so no restricted transfer applies to those two under UK GDPR Chapter V. Twilio's SMS and WhatsApp message routing for this account currently runs through Twilio's United States (US1) region, as EU/Ireland message routing is not yet available for this number; this is a Twilio infrastructure limitation, not a configuration choice. This transfer is covered by Twilio's Data Processing Addendum and the UK International Data Transfer Addendum incorporated within it, consistent with the safeguards described for Anthropic below.</p>
 <p>Vercel's function region is configured and confirmed for Europe (London).</p>
-<p>Cloudflare Email Routing operates on a global anycast network by design and does not offer per-project region locking outside its Enterprise-tier Data Localization Suite. We rely on Cloudflare's published Customer DPA, which incorporates the UK Addendum and EU SCCs, as the transfer mechanism for this provider.</p>
 <p>Anthropic and, where the Gmail-connected path is used, certain Google processing occur in the United States. Where we transfer personal data outside the UK, we rely on appropriate safeguards recognised under UK GDPR — for Anthropic, this is the UK SCCs incorporated into its standard Data Processing Addendum, consistent with the main Josefin DPIA. For Google, we rely on Google's standard data processing terms and, where applicable, the EU-US Data Privacy Framework.</p>
 <h2 id="data-retention-and-deletion">10. Data Retention and Deletion</h2>
 <p>We retain personal data only for as long as necessary for the purposes described in this policy.</p>
@@ -942,6 +1063,8 @@ body.modal-open { overflow: hidden; }
 <li><p>Email: privacy@josefin.ai</p></li>
 </ul>
 <p>You have the right to lodge a complaint with the ICO: ico.org.uk/make-a-complaint</p>
+
+</div>
     </section>
 
     <div class="rule"></div>
