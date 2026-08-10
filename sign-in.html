@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sign in - Josefin</title>
-<meta name="description" content="Continue with Google or Outlook to begin your Josefin handover.">
+<meta name="description" content="Continue with Google to begin your Josefin handover.">
 <meta name="theme-color" content="#FAFAF8">
 <style id="__inlined-fonts">
 /* latin */
@@ -586,9 +586,6 @@ body.modal-open { overflow: hidden; }
   <rect x="220" y="280" width="360" height="48" rx="2" fill="#fff" stroke="#D8D2C4"/>
   <circle cx="260" cy="304" r="9" fill="#4285F4"/>
   <text x="310" y="310" fill="#0E0D0A" font-family="sans-serif" font-size="16" font-weight="500">Continue with Google</text>
-  <rect x="220" y="340" width="360" height="48" rx="2" fill="#fff" stroke="#D8D2C4"/>
-  <rect x="252" y="296" width="8" height="8" fill="#F25022" transform="translate(0 8)"/>
-  <text x="310" y="370" fill="#0E0D0A" font-family="sans-serif" font-size="16" font-weight="500">Continue with Outlook</text>
 </svg>
 </template>
 
@@ -603,7 +600,7 @@ body.modal-open { overflow: hidden; }
 
     <div class="auth-center">
       <div class="auth-card">
-        <div class="auth-eye">July Beta · Free</div>
+        <div class="auth-eye">Beta · Free</div>
         <h1 class="auth-h">Begin the <em>handover.</em></h1>
         <p class="auth-sub">Connect the inbox and calendar Josefin will work from. Two minutes, no installs, and you can disconnect any time.</p>
 
@@ -617,16 +614,6 @@ body.modal-open { overflow: hidden; }
             </svg>
             <span>Continue with Google</span>
           </button>
-
-          <button class="auth-btn" type="button" data-provider="outlook">
-            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="0" y="0" width="8.5" height="8.5" fill="#F25022"/>
-              <rect x="9.5" y="0" width="8.5" height="8.5" fill="#7FBA00"/>
-              <rect x="0" y="9.5" width="8.5" height="8.5" fill="#00A4EF"/>
-              <rect x="9.5" y="9.5" width="8.5" height="8.5" fill="#FFB900"/>
-            </svg>
-            <span>Continue with Outlook</span>
-          </button>
         </div>
 
         <div class="auth-note" role="note">
@@ -639,7 +626,7 @@ body.modal-open { overflow: hidden; }
     </div>
 
     <div class="auth-foot">
-      <div class="auth-foot-copy">© 2025 Josefin</div>
+      <div class="auth-foot-copy">© 2026 Josefin</div>
       <div class="auth-foot-links">
         <a href="/contact">Contact</a>
         <a href="/contact">Help</a>
@@ -659,11 +646,11 @@ body.modal-open { overflow: hidden; }
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span><b>Add the people who matter.</b> Partner, nanny, grandparents — they'll receive only what concerns them, on WhatsApp.</span>
+          <span><b>Add the people who matter.</b> Partner, nanny, grandparents — bring them in as household members.</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span><b>Then breathe.</b> The first daily brief lands tonight. Josefin starts noticing, briefing, and chasing in the background.</span>
+          <span><b>Then breathe.</b> Josefin starts noticing, briefing, and chasing in the background.</span>
         </li>
       </ul>
     </div>
@@ -690,7 +677,7 @@ body.modal-open { overflow: hidden; }
       btn.style.opacity = '0.6';
       btn.style.pointerEvents = 'none';
       var label = btn.querySelector('span');
-      if (label) label.textContent = 'Redirecting to ' + (provider === 'google' ? 'Google' : 'Microsoft') + '…';
+      if (label) label.textContent = 'Redirecting to Google…';
     });
   });
 </script>
@@ -699,17 +686,16 @@ body.modal-open { overflow: hidden; }
 <script>
 /* ----------------------------------------------------------------
    Josefin sign-in — OAuth initiation.
-   The buttons carry data-provider="google" | "outlook".
+   The button carries data-provider="google".
    To go live, replace AUTH_ENDPOINTS below with your real OAuth
-   start URLs (server-side route that holds the client_id/secret and
-   redirects to Google/Microsoft consent). Until then the click is
+   start URL (server-side route that holds the client_id/secret and
+   redirects to Google consent). Until then the click is
    intercepted and a status line is shown.
    ---------------------------------------------------------------- */
 (function(){
   var AUTH_ENDPOINTS = {
-    // e.g. google:  '/auth/google',   outlook: '/auth/microsoft'
-    google:  null,
-    outlook: null
+    // e.g. google: '/auth/google'
+    google:  null
   };
   document.querySelectorAll('.auth-btn[data-provider]').forEach(function(btn){
     btn.addEventListener('click', function(){

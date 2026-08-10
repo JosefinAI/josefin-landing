@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms - Josefin</title>
-<meta name="description" content="Josefin terms of service — coming ahead of our July 2026 launch.">
+<meta name="description" content="Josefin's Terms of Service for the Beta pilot.">
 <meta name="theme-color" content="#FAFAF8">
 <style id="__inlined-fonts">
 /* latin */
@@ -669,7 +669,7 @@ body.modal-open { overflow: hidden; }
     <li><a href="/why-josefin">Why Josefin</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="/sign-in" class="nav-cta-gold">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold">Join Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta">Waitlist</a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -684,7 +684,7 @@ body.modal-open { overflow: hidden; }
   <a href="/why-josefin" class="drawer-link" id="dl2">Why Josefin</a>
   <a href="/#faq" class="drawer-link" id="dl3">FAQs</a>
   <div class="drawer-ctas">
-    <a href="/sign-in" class="nav-cta-gold" style="text-align:center;">Join July Beta <span class="free-pill">Free</span></a>
+    <a href="/sign-in" class="nav-cta-gold" style="text-align:center;">Join Beta <span class="free-pill">Free</span></a>
     <a href="#" data-open-waitlist class="nav-cta" style="text-align:center;">Join Waitlist</a>
   </div>
 </div>
@@ -715,8 +715,222 @@ body.modal-open { overflow: hidden; }
 
     <!-- BODY -->
     <section class="email-block">
-      <p class="holding-lede" style="margin-top:0;">We're currently finalizing our terms of service ahead of our July 2026 launch.</p>
-      <p class="email-note" style="margin-top:2rem;">If you have questions about how Josefin handles your data, email us at <a href="mailto:hello@josefin.ai" style="color:var(--ink);border-bottom:1px solid var(--ink-30);text-decoration:none;padding-bottom:0.1rem;">hello@josefin.ai</a>.</p>
+     <style>
+/* Terms of service body styling — uses Josefin design tokens.
+   Scoped under .priv-body so it never leaks into surrounding page chrome. */
+.priv-body {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-light, 300);
+  font-size: var(--text-md-2, 0.9rem);
+  line-height: var(--leading-normal, 1.7);
+  color: var(--color-ink, #0E0D0A);
+}
+
+.priv-body em { color: var(--color-ink-60, rgba(14,13,10,0.60)); font-style: italic; }
+.priv-body strong { font-weight: var(--weight-medium, 500); }
+.priv-body a { color: var(--color-acc, #C49020); text-decoration: underline; text-underline-offset: 2px; }
+.priv-body a:hover { opacity: 0.8; }
+
+.priv-body > p:first-child {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-size: var(--text-lg, 0.95rem);
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: 0.35rem;
+}
+.priv-body > p:nth-child(2) {
+  font-size: var(--text-sm-2, 0.72rem);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: var(--space-2, 2rem);
+}
+
+.priv-contents-label {
+  font-size: var(--text-sm, 0.7rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  margin-bottom: 0.5rem;
+}
+.priv-body > p:nth-child(4) {
+  font-size: var(--text-sm-2, 0.72rem);
+  line-height: var(--leading-relaxed, 1.85);
+  color: var(--color-ink-40, rgba(14,13,10,0.40));
+  padding-bottom: var(--space-2, 2rem);
+  border-bottom: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+  margin-bottom: var(--space-2-5, 2.5rem);
+}
+
+.priv-body h2 {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-weight: var(--weight-light, 300);
+  font-size: var(--text-6xl, 1.7rem);
+  line-height: var(--leading-tight, 1.1);
+  letter-spacing: var(--tracking-tight, -0.01em);
+  color: var(--color-ink, #0E0D0A);
+  margin-top: var(--space-3, 3rem);
+  margin-bottom: var(--space-1, 1rem);
+  padding-top: var(--space-2, 2rem);
+  border-top: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+}
+.priv-body h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+.priv-body h3 {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-medium, 500);
+  font-size: var(--text-lg, 0.95rem);
+  color: var(--color-ink, #0E0D0A);
+  margin-top: var(--space-1-75, 1.75rem);
+  margin-bottom: var(--space-0-5, 0.5rem);
+}
+
+.priv-body p { margin-bottom: var(--space-1, 1rem); }
+
+.priv-body ul {
+  margin: 0 0 var(--space-1, 1rem) 0;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+.priv-body ul li {
+  position: relative;
+  padding-left: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.priv-body ul li p { margin-bottom: 0; }
+.priv-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-acc, #C49020);
+}
+
+.priv-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-1-5, 1.5rem) 0 var(--space-2, 2rem);
+  font-size: var(--text-sm-2, 0.72rem);
+}
+.priv-body th,
+.priv-body td {
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-ink-12, rgba(14,13,10,0.12));
+  vertical-align: top;
+  line-height: var(--leading-snug, 1.5);
+}
+.priv-body thead th,
+.priv-body table:not(.priv-table) tr:first-child td {
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-weight: var(--weight-medium, 500);
+  font-size: var(--text-sm, 0.7rem);
+  letter-spacing: var(--tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--color-ink-60, rgba(14,13,10,0.60));
+  background: var(--color-bg-mid, #F4F2EE);
+}
+.priv-body tbody tr:nth-child(even) { background: var(--color-bg-mid, #F4F2EE); }
+
+@media (max-width: 960px) {
+  .priv-body table { font-size: var(--text-2xs, 0.62rem); }
+  .priv-body th, .priv-body td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+<div class="priv-body">
+<p><em>Terms of Service for Josefin's Beta (Pilot) Version.</em></p>
+<p><em><strong>Last updated: 10 August 2026</strong></em></p>
+<p class="priv-contents-label">Contents</p>
+<p>1. Introduction · 2. Eligibility · 3. Account Registration · 4. The Service · 5. Acceptable Use · 6. Data, Connected Accounts, and Authorisation · 7. AI-Generated Content and Accuracy · 8. SMS and WhatsApp Messaging · 9. Beta / Pilot Status · 10. Fees · 11. Intellectual Property · 12. Third-Party Services · 13. Disclaimer of Warranties · 14. Limitation of Liability · 15. Indemnification · 16. Termination · 17. Changes to These Terms · 18. Governing Law and Disputes · 19. Severability · 20. Entire Agreement · 21. Contact Us</p>
+<h2 id="introduction">1. Introduction</h2>
+<p>Welcome to Josefin. These Terms of Service ("Terms") govern your access to and use of Josefin's website, application, and related services (the "Service"). By accessing or using the Service, you agree to be bound by these Terms.</p>
+<p>Josefin is operated by Josefin Ltd., a company registered in England and Wales. These Terms are governed by the laws of England and Wales.</p>
+<p>This version of the Terms covers the Beta pilot only — a limited group of households helping validate the Service before general availability. See Section 9.</p>
+<h2 id="eligibility">2. Eligibility</h2>
+<p>You must be at least 18 years old to hold a Josefin account. By creating an account, you represent that you meet this requirement and have the legal capacity to enter into these Terms. Children referenced within a household account do not hold their own Josefin accounts and are not party to these Terms; the adult account holder is responsible for any information provided about them.</p>
+<h2 id="account-registration">3. Account Registration</h2>
+<p>To use Josefin, the primary household account holder must register with accurate contact details. You agree to:</p>
+<ul>
+<li><p>Accept responsibility for activity that occurs under your household account, including actions taken by household members you add</p></li>
+<li><p>Notify us promptly of any unauthorised access to your account</p></li>
+<li><p>Provide accurate information when registering and when adding household members</p></li>
+<li><p>Obtain the agreement of any household member you add before Josefin begins messaging them, consistent with Section 8</p></li>
+</ul>
+<h2 id="the-service">4. The Service</h2>
+<p>Josefin is household infrastructure. It helps you capture, route, and close the logistical tasks that run underneath family life, by processing content you forward or connect to it — emails, WhatsApp messages, and, a connected Google Calendar (and Gmail, where separately enabled) — and turning that content into routed tasks, reminders, and calendar events for the right household member.</p>
+<p>Josefin does not take irreversible action on your behalf without the confirmation or routing rules you have set. How your data is collected, used, and shared is described in our Privacy Policy, which forms part of these Terms.</p>
+<h2 id="acceptable-use">5. Acceptable Use</h2>
+<p>You agree to use the Service only for lawful, personal household purposes. You agree not to:</p>
+<ul>
+<li><p>Reverse engineer, decompile, or disassemble any part of the Service</p></li>
+<li><p>Use the Service to send spam or unsolicited communications to anyone outside your household</p></li>
+<li><p>Transmit viruses, malware, or other harmful code</p></li>
+<li><p>Interfere with or disrupt the integrity or performance of the Service</p></li>
+<li><p>Attempt to gain unauthorised access to our systems, other households' data, or our AI processing pipeline</p></li>
+<li><p>Use the Service for any commercial, illegal, or unauthorised purpose</p></li>
+<li><p>Add a household member's phone number or forward another person's email content without a reasonable basis for believing they consent to it</p></li>
+</ul>
+<h2 id="data-connected-accounts-and-authorisation">6. Data, Connected Accounts, and Authorisation</h2>
+<p>Where you connect a Google account, or forward email or WhatsApp content to Josefin, you authorise us to access and process that content as necessary to provide the Service. You represent that you have the right to grant this access and that doing so does not violate any third party's rights or any agreement you are subject to, including in respect of content that references other household members or your children.</p>
+<p>You retain ownership of the content you send or connect to Josefin. We process it in accordance with our Privacy Policy, including the retention periods and sub-processor list set out there.</p>
+<h2 id="ai-generated-content-and-accuracy">7. AI-Generated Content and Accuracy</h2>
+<p>Josefin uses AI to extract dates, deadlines, and action items from the content you send or connect, and to draft routing messages and calendar events based on that extraction. AI-generated extraction can be incomplete or inaccurate, particularly for handwritten notes, low-quality images, or ambiguous phrasing.</p>
+<p>You are responsible for reviewing time-sensitive or consequential items — school deadlines, medical appointments, permission slips, and similar — rather than relying on Josefin as the sole record. Josefin does not provide medical, legal, financial, or educational advice, and nothing in the Service should be treated as such.</p>
+<h2 id="sms-and-whatsapp-messaging">8. SMS and WhatsApp Messaging</h2>
+<p>By registering as the primary account holder, you consent to receive SMS messages from Josefin related to the Service. Household members you add will receive a one-time introductory message before any routing messages are sent to them, giving them the opportunity to confirm or decline.</p>
+<ul>
+<li><p>Message and data rates may apply.</p></li>
+<li><p>Message frequency depends on household activity.</p></li>
+<li><p>Reply STOP at any time to opt out. This immediately stops further messages to that number.</p></li>
+<li><p>WhatsApp is used primarily for inbound content capture; sending content to Josefin via WhatsApp does not by itself enrol you in outbound WhatsApp messaging.</p></li>
+</ul>
+<h2 id="beta-pilot-status">9. Beta / Pilot Status</h2>
+<p>The Service is currently offered as a Beta pilot to a limited group of households. You acknowledge and agree that during the pilot:</p>
+<ul>
+<li><p>Features, extraction accuracy, and the scope of the Service may change without notice as it is actively developed</p></li>
+<li><p>We do not guarantee uptime, availability, or that the Service will be free of interruptions or errors</p></li>
+<li><p>We may use anonymised or aggregated feedback, usage patterns, and outcomes from your household's pilot participation to improve the Service, consistent with the retention terms in our Privacy Policy</p></li>
+<li><p>We may end the pilot, or your household's participation in it, at any time, including where the pilot concludes or does not proceed to general availability</p></li>
+</ul>
+<h2 id="fees">10. Fees</h2>
+<p>The Beta pilot is provided free of charge. If Josefin introduces paid tiers at general availability, existing pilot households will be notified before any charge applies, with the option to cancel before being billed.</p>
+<h2 id="intellectual-property">11. Intellectual Property</h2>
+<p>The Service, including all content, features, and functionality, is owned by Josefin Ltd. and protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of the Service without our prior written consent.</p>
+<p>We grant you a limited, non-exclusive, non-transferable, revocable licence to use the Service for your household's personal, non-commercial purposes, subject to these Terms.</p>
+<h2 id="third-party-services">12. Third-Party Services</h2>
+<p>The Service integrates with third-party services, including Google, Twilio, and Anthropic. Your use of any connected third-party service is also subject to that provider's own terms and privacy policy. We are not responsible for the content, accuracy, or practices of any third-party service.</p>
+<h2 id="disclaimer-of-warranties">13. Disclaimer of Warranties</h2>
+<p>The Service is provided "as is" and "as available" without warranties of any kind, express or implied. To the fullest extent permitted by law, we disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+<p>We do not warrant that the Service will be uninterrupted, error-free, or secure, or that any defects will be corrected, and this applies with particular force during the Beta pilot described in Section 9.</p>
+<h2 id="limitation-of-liability">14. Limitation of Liability</h2>
+<p>To the maximum extent permitted by applicable law, Josefin Ltd. and its directors, employees, agents, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenue, data, or goodwill, arising out of or in connection with your use of the Service.</p>
+<p>Our total liability for any claim arising under these Terms shall not exceed the amount you paid us, if any, in the twelve (12) months preceding the claim. Where the Service is provided to your household free of charge during the Beta pilot, this cap is nil.</p>
+<p>Nothing in these Terms excludes or limits our liability for death or personal injury caused by our negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited under English law.</p>
+<h2 id="indemnification">15. Indemnification</h2>
+<p>You agree to indemnify, defend, and hold harmless Josefin Ltd. and its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your violation of these Terms, or your violation of any third party's rights, including in respect of content you forward or connect that references other household members or your children.</p>
+<h2 id="termination">16. Termination</h2>
+<p>We may suspend or terminate your access to the Service at any time, with or without cause, particularly during the Beta pilot described in Section 9. You may stop using the Service at any time and may request deletion of your household's data by contacting us at the details in Section 21; during the pilot, deletion is actioned manually on request rather than through a self-service in-app control.</p>
+<p>Provisions of these Terms that by their nature should survive termination will survive, including intellectual property, disclaimers, indemnification, and limitation of liability.</p>
+<h2 id="changes-to-these-terms">17. Changes to These Terms</h2>
+<p>We may modify these Terms at any time, particularly as the Service moves from Beta pilot to general availability. We will notify you of material changes by posting the updated Terms and updating the "Last updated" date. Continued use of the Service after such changes constitutes acceptance of the modified Terms.</p>
+<h2 id="governing-law-and-disputes">18. Governing Law and Disputes</h2>
+<p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising out of or in connection with these Terms are subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+<h2 id="severability">19. Severability</h2>
+<p>If any provision of these Terms is found unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+<h2 id="entire-agreement">20. Entire Agreement</h2>
+<p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Josefin Ltd. regarding your use of the Service and supersede all prior agreements and understandings on that subject.</p>
+<h2 id="contact-us">21. Contact Us</h2>
+<p>Questions about these Terms:</p>
+<ul>
+<li><p>Josefin Ltd., 227 Ladbroke Grove, London W10 6HG</p></li>
+<li><p>Wande Abe, Founder and CEO — privacy@josefin.ai</p></li>
+</ul>
+</div>
     </section>
 
     <div class="rule"></div>
@@ -739,7 +953,7 @@ body.modal-open { overflow: hidden; }
       <a href="/privacy">Privacy</a>
       <a href="/terms" class="active">Terms</a>
     </div>
-    <div class="ft-copy">© 2025 Josefin · hello@josefin.ai</div>
+    <div class="ft-copy">© 2026 Josefin · hello@josefin.ai</div>
   </div>
 </footer>
 
